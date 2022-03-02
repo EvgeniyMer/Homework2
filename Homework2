@@ -1,0 +1,72 @@
+#define _USE_MATH_DEFINES
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    system("chcp 1251");
+    //Задание №1
+    cout << "Задание №1\n";
+    float R, r, h, V, S;
+    cout << "Введите радиус нижнего и верхнего основания, и высоту усечённого конуса\n";
+    cin >> R >> r >> h;
+    if ((R == 0) or (r == 0) or (h == 0)) {
+        cout << "Фигура не является усечённым конусом\n";
+    } else {
+        V = M_PI / 3 * h * (R * R + R * r + r * r);
+        S = M_PI * (R * R + (R + r) * sqrt((R - r) * (R - r) + h * h) + r * r);
+        cout << V << "\n" << S << "\n";
+    }
+    //Задание №2
+    cout << "Задание №2\n";
+    float w, x, a;
+    cout << "Введите x и a\n";
+    cin >> x >> a;
+    if (abs(x) < 1) {
+        if (x == 0) {
+            cout << "Значение w не определено\n";
+        } else {
+            w = a*log(abs(x));
+            cout << w << "\n";
+        }
+    } else {
+        if ((a-x*x) < 0) {
+            cout << "Значение w не определено\n";
+        } else {
+            w = sqrt(a-x*x);
+            cout << w << "\n";
+        }
+    }
+    //Задание №3
+    cout << "Задание №3\n";
+    float z3, x3, y3, b3;
+    cout << "Введите начение x, y и b:\n";
+    cin >> x3 >> y3 >> b3;
+    if (((b3 - y3) <= 0) or ((b3 - x3) < 0)) {
+        cout << "Значение z не определено\n";
+    } else {
+        z3 = log(b3-y3)*sqrt(b3-x3);
+        cout << "Значение z равно " << z3 << "\n";
+    }
+    //Задание №4
+    cout << "Задание №4\n";
+    int N;
+    int s4 = 0;
+    cout << "Введите N:\n";
+    cin >> N;
+    while ((N + s4) <= (N + 10)) {
+        cout << N+s4 << "\n";
+        s4++;
+    }
+    //Задание №5
+    cout << "Задание №5\n";
+    float x5, y5;
+    for (x5 = -4; x5 <= 4; x5 = x5+0.5) {
+        if ((x5 - 1) == 0) {
+            cout << "Значение y не определено\n";
+        } else {
+            y5 = (x5*x5-2*x5+2)/(x5-1);
+            cout << y5 << "\n";
+        }
+    }
+}
